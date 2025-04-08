@@ -57,12 +57,12 @@ public class UrlMappingService {
         }
         return shortUrl.toString();
     }
-//
-//    public List<UrlMappingDTO> getUrlsByUser(User user) {
-//        return urlMappingRepository.findByUser(user).stream()
-//                .map(this::convertToDto)
-//                .toList();
-//    }
+
+    public List<UrlMappingDTO> getUrlsByUser(User user) {
+        return urlMappingRepository.findByUser(user).stream()
+                .map(this::convertToDto)
+                .toList();
+    }
 //
 //    public List<ClickEventDTO> getClickEventsByDate(String shortUrl, LocalDateTime start, LocalDateTime end) {
 //        UrlMapping urlMapping = urlMappingRepository.findByShortUrl(shortUrl);
