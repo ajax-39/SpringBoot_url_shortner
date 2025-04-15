@@ -61,16 +61,16 @@ public class UrlMappingController {
     }
 //
 //
-//    @GetMapping("/totalClicks")
-//    @PreAuthorize("hasRole('USER')")
-//    public ResponseEntity<Map<LocalDate, Long>> getTotalClicksByDate(Principal principal,
-//                                                                     @RequestParam("startDate") String startDate,
-//                                                                     @RequestParam("endDate") String endDate){
-//        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
-//        User user = userService.findByUsername(principal.getName());
-//        LocalDate start = LocalDate.parse(startDate, formatter);
-//        LocalDate end = LocalDate.parse(endDate, formatter);
-//        Map<LocalDate, Long> totalClicks = urlMappingService.getTotalClicksByUserAndDate(user, start, end);
-//        return ResponseEntity.ok(totalClicks);
-//    }
+    @GetMapping("/totalClicks")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<Map<LocalDate, Long>> getTotalClicksByDate(Principal principal,
+                                                                     @RequestParam("startDate") String startDate,
+                                                                     @RequestParam("endDate") String endDate){
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
+        User user = userService.findByUsername(principal.getName());
+        LocalDate start = LocalDate.parse(startDate, formatter);
+        LocalDate end = LocalDate.parse(endDate, formatter);
+        Map<LocalDate, Long> totalClicks = urlMappingService.getTotalClicksByUserAndDate(user, start, end);
+        return ResponseEntity.ok(totalClicks);
+    }
 }
